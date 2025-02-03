@@ -1,18 +1,20 @@
-import {cart} from '../data/cart';
-import { products } from '../data/products';
-import { formatCurrency } from './utils/money';
+import { cart } from '../data/cart.js';
+import { products } from '../data/products.js';
+import { formatCurrency } from './utils/money.js';
+
 
 let cartSummaryHTML= '';
+console.log(cart);
 cart.forEach(cartItem => {
   const productId = cartItem.productId;
-  let matchingItem;
+  let matchingProduct;
 
   products.forEach(product => {
-    if(product.id===cartItem.productId){
+    if(product.id===productId){
       matchingProduct = product;
-    }
-    
+    } 
   });
+
   cartSummaryHTML += `
     <div class="cart-item-container">
       <div class="delivery-date">
@@ -88,7 +90,7 @@ cart.forEach(cartItem => {
           </div>
         </div>
       </div>
-    </div>`
-  
+    </div>
+  `
 });
 console.log(cartSummaryHTML);
