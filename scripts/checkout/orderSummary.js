@@ -12,7 +12,6 @@ console.log('Delivery Options:', deliveryOptions);
 
 export function renderOrderSummary(){
 
-
   let cartSummaryHTML= '';
 
   cart.forEach(cartItem => {
@@ -48,7 +47,7 @@ export function renderOrderSummary(){
               ${matchingProduct.name}
             </div>
             <div class="product-price">
-              $${formatCurrency(matchingProduct.priceCents)}
+              $${matchingProduct.getPrice()}
             </div>
             <div class="product-quantity">
               <span>
